@@ -1,0 +1,2 @@
+# ShopOnline
+以一个简单的小项目熟悉javaweb相关内容，也可以通过使用git来熟悉代码管理
