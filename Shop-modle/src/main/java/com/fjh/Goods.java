@@ -24,6 +24,21 @@ public class Goods {
 	@MyColumn(columnName ="goods_price" )
 	private Double goodPrice;
 	
+	@MyColumn(columnName ="stock" )
+	private int stock;
+	
 	@MyColumn(columnName ="add_time" )
 	private Date addTime;
+	
+	@MyColumn(columnName ="sales" )
+	private int sales;
+	
+	@MyColumn(columnName ="types_id" )
+	private int typesId;
+	
+	@MyColumn(columnName ="infor_id" )
+	private int inforId;
+	
+	@MyColumn(columnName ="g_img" )
+	private String image;
 }

@@ -13,14 +13,14 @@
 </head>
 <body>
 <div id="header" class="wrap">
-		<div id="logo">网上书城</div>
+		<div id="logo">网上商城</div>
 		<div id="navbar">
 		</div>
 	</div>
 	<!--头部结束-->
 <div id="register">
 	<div class="title">
-		<h2>欢迎注册网上书城</h2>
+		<h2>欢迎注册网上商城</h2>
 	</div>
 	<div class="steps">
 		<ul class="clearfix">
@@ -45,7 +45,7 @@
 </div>	
 <!--底部-->
 <div id="footer" class="wrap">
-	网上书城 &copy; 版权所有
+	鲲鹏网上商城 &copy; 版权所有
 </div>
 </body>
 

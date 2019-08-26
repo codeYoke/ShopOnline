@@ -87,10 +87,10 @@ public interface DbDao {
 	 * @Description: TODO(根据传入的对象执行sql的插入操作)
 	 * @param obj 
 	 * @throws MyException 参数
-	 * @return void 返回类型
+	 * @return Long -1表示插入未成功
 	 * @throws
 	 */
-	public void insert(Object obj)throws MyException ;
+	public Long insert(Object obj)throws MyException ;
 	
 	/**
 	 * 	

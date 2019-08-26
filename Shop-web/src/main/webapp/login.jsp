@@ -7,11 +7,11 @@
 <!-- 链入js，登录检验 -->
 <script type="text/javascript" src="js/valiadate.js"></script>
 
-<title>网上书城</title>	
+<title>网上商城</title>	
 </head>
 <body>
 	<div id="header" class="wrap">
-	<div id="logo">网上书城</div>
+	<div id="logo">网上商城</div>
 	<div id="navbar">
 	</div>
 </div>
@@ -29,7 +29,7 @@
 	</form>
 </div>
 <div id="footer" class="wrap">
-	鲲鹏网上书城 &copy; 版权所有
+	鲲鹏网上商城 &copy; 版权所有
 </div>
 <%-- <jsp:include page="foot.html"></jsp:include> --%>
 

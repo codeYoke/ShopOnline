@@ -246,11 +246,11 @@ public class DbDaoImpl implements DbDao {
 	}
 
 	@Override
-	public void insert(Object obj) throws MyException {
+	public Long insert(Object obj) throws MyException {
 		// "INSERT into stu(stu_name,stu_no,stu_age) values(?,?,?)";
 		// 获取参数的字节码
 		Class clazz = obj.getClass();
-
+		Long key = -1l;
 		// 是否自动增长的主键,如果是自动增长的主键则需要返回一个主键，默认为false
 		boolean flagIsGenerator = false;
 
@@ -318,7 +318,7 @@ public class DbDaoImpl implements DbDao {
 							sqlValues.append(" ? ").append(" , ");
 							// 将对应的占位符值放入集合中（有序）
 							params.add(value);
-							System.out.println(sqlFirst + " " + sqlColumns + " " + sqlValues + " " + params);
+							//System.out.println(sqlFirst + " " + sqlColumns + " " + sqlValues + " " + params);
 
 						}
 
@@ -339,7 +339,7 @@ public class DbDaoImpl implements DbDao {
 			// 执行sql
 			if (flagIsGenerator) {
 				// 主键自动增长需要返回主键
-				Long key = null;
+				 key = null;
 				try {
 					key = excuteSql(sqlLast.toString(), params.toArray(), true);
 				} catch (SQLException e) {
@@ -361,7 +361,7 @@ public class DbDaoImpl implements DbDao {
 			} else {
 				try {
 					// 非自动增长不需要返回主键
-					Long key = excuteSql(sqlLast.toString().toString(), params.toArray());
+					 key = excuteSql(sqlLast.toString().toString(), params.toArray());
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -369,7 +369,7 @@ public class DbDaoImpl implements DbDao {
 		} else {
 			throw new MyException(-1, "未指定表名");
 		}
-
+		return key;
 	}
 
 	@Override

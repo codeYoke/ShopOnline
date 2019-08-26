@@ -63,12 +63,12 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		
-		UserInfo userinfo = new UserInfo();
-		userinfo.setUserName(username);
-		userinfo.setPassword(password);
-		userinfo.setEmail(email);
-		
-		if(!userBiz.addUser(userinfo)) {
+		userInfo = new UserInfo();
+		userInfo.setUserName(username);
+		userInfo.setPassword(password);
+		userInfo.setEmail(email);
+		System.out.println("注册状态："+userBiz.addUser(userInfo));
+		if(!userBiz.addUser(userInfo)) {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script type='text/javascript'>");
@@ -84,15 +84,16 @@ public class RegisterServlet extends HttpServlet {
 	protected void check(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		boolean isExist = userBiz.userExist(username,userInfo);
+		System.out.println("用户是否存在数据库："+isExist);
 		if(isExist) {
 			response.setCharacterEncoding("utf-8");
 			response.getWriter().write("true");
-			System.out.println("true");
+			System.out.println("用户是否存在状态：true");
 			response.getWriter().close();
 		} else {
 			response.setCharacterEncoding("utf-8");
 			response.getWriter().write("false");
-			System.out.println("false");
+			System.out.println("用户是否存在状态：false");
 			response.getWriter().close();
 		}
 	}

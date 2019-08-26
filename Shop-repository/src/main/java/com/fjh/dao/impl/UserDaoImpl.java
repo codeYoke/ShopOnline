@@ -6,6 +6,7 @@ import java.util.List;
 import com.fjh.UserInfo;
 import com.fjh.dao.DbDao;
 import com.fjh.dao.UserDao;
+import com.fjh.exception.MyException;
 
 public class UserDaoImpl implements UserDao {
 	DbDao db = new DbDaoImpl();
@@ -26,9 +27,15 @@ public class UserDaoImpl implements UserDao {
 		return info;
 	}
 
+	//注册后添加用户信息
 	@Override
 	public int insert(UserInfo userinfo) {
-		// TODO Auto-generated method stub
+		try {
+			int i = db.insert(userinfo).intValue();
+		} catch (MyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return 0;
 	}
 

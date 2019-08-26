@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>鲲鹏网上书城</title>
+<title>鲲鹏网上商城</title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 <script type="text/javascript" src="js/valiadate.js"></script>
@@ -27,7 +27,7 @@ function checkSel() {
 		}
 	}
 	if(isSel == false) {
-		alert("请选择图书");
+		alert("请选择商品");
 	}		
 	return isSel;
 }
@@ -60,7 +60,7 @@ function checkSel() {
 			<table>
 				<tr class="title">
 					<th class="checker"></th>
-					<th>书名</th>
+					<th>商品名</th>
 					<th class="price">价格</th>
 					<th class="store">库存</th>
 					<th class="view">图片预览</th>
@@ -68,15 +68,15 @@ function checkSel() {
 				
 				<c:forEach var="book" items="${books }">
 					<tr>
-						<td><input type="checkbox" name="bookId" value="${book.bid }" /></td>
-						<td class="title">${book.bookname }</td>
-						<input type="hidden" name="title" value = "${book.bid }:${book.bookname}"/>
-						<td>￥${book.b_price }</td>
-						<input type="hidden" name="price" value = "${book.bid }:${book.b_price}"/> <!-- b_price跟数据库字段名相对应 -->
+						<td><input type="checkbox" name="bookId" value="${book.goods_id }" /></td>
+						<td class="title">${book.goods_name }</td>
+						<input type="hidden" name="title" value = "${book.goods_id }:${book.goods_name}"/>
+						<td>￥${book.goods_price }</td>
+						<input type="hidden" name="price" value = "${book.goods_id}:${book.goods_price}"/> 
 						<td>${book.stock }</td>
-						<input type="hidden" name="stock" value = "${book.bid }:${book.stock}"/>
-						<td class="thumb"><img src="${book.image }" /></td>
-						<input type="hidden" name="image" value = "${book.bid }:${book.image}"/>
+						<input type="hidden" name="stock" value = "${book.goods_id }:${book.stock}"/>
+						<td class="thumb"><img src="${book.g_img }" /></td>
+						<input type="hidden" name="image" value = "${book.goods_id }:${book.g_img}"/>
 					</tr>
 				</c:forEach>	
 				
@@ -104,7 +104,7 @@ function checkSel() {
 </div><!--中间内容结束-->
 
 <div id="footer" class="wrap">
-	鲲鹏网上书城 &copy; 版权所有
+	鲲鹏网上商城 &copy; 版权所有
 </div>
 
 </body>

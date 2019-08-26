@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>鲲鹏网上书城</title>
+	<title>鲲鹏网上商城</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
@@ -25,7 +25,7 @@
 </div>
 <div id="register">
 	<div class="title">
-		<h2>欢迎注册鲲鹏网上书城</h2>
+		<h2>欢迎注册鲲鹏网上商城</h2>
 	</div>
 	<div class="steps">
 		<ul class="clearfix">
@@ -41,7 +41,7 @@
 	</div>
 </div>
 <div id="footer" class="wrap">
-	鲲鹏网上书城 &copy; 版权所有
+	鲲鹏网上商城 &copy; 版权所有
 </div>
 </body>
 </html>

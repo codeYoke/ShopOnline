@@ -9,7 +9,7 @@ import com.fjh.dao.UserDao;
 
 public class UserBizImpl implements UserBiz{
 	private UserDao userDao = null;
-	UserInfo info = null;
+	UserInfo info = new UserInfo();
 	
 	public UserDao getUserDao() {
 		return userDao;
@@ -19,12 +19,14 @@ public class UserBizImpl implements UserBiz{
 	
 	
 	@Override
-	public boolean checkLogin(String username,String password,UserInfo userInfo) {
+	public boolean checkLogin(String username,String password) {
 
-		String sql = "select * from userinfo where username='"+username+"'and password='"+password+"'";
-		info = userDao.query(sql,userInfo);
-		
-		return info.getUserName()!=null ? true : false;
+		String sql = "select * from users where user_name='"+username+"'and user_password='"+password+"'";
+		System.out.println(sql); 
+		info = userDao.query(sql,info);	
+		//System.out.println("检测登录密码用户名："+info.getUserName());
+		System.out.println("检测登录密码用户名："+info.getUserName()==username ? true : false);
+		return info.getUserName().equals(username) ? true : false;
 	}
 
 
@@ -42,8 +44,8 @@ public class UserBizImpl implements UserBiz{
 	@Override
 	public boolean addUser(UserInfo userinfo) {
 		int i = userDao.insert(userinfo);
-		
-		return i > 0 ? true : false;
+		System.out.println("插入用户情况："+i);
+		return i ==-1 ? false : true;
 	}
 
 	@Override
@@ -52,7 +54,7 @@ public class UserBizImpl implements UserBiz{
 		System.out.println(sql);
 		userInfo = new UserInfo();
 		info = userDao.query(sql,userInfo);
-		System.out.println(info.toString());
+		System.out.println(info.getUserName());
 		return info.getUserName()!=null ? true : false;	//如果查询有数据则已经被注册
 	}
 	

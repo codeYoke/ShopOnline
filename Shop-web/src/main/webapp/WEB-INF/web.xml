@@ -24,7 +24,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>SearchServlet</servlet-name>
-    <servlet-class>com.servlet.SearchServlet</servlet-class>
+    <servlet-class>com.fjh.servlet.SearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SearchServlet</servlet-name>

@@ -13,7 +13,7 @@ a:hover, a:active { color:#03F; text-decoration:underline; }
 .success .information { margin-left:180px; }
 
 #header { }
-#header #logo { background:url(../image/logo_ps03.png)no-repeat; width:180px; height:148px; text-indent:-1000em; }
+#header #logo { background:url(../image/logo_ps03.png)no-repeat; width:364px; height:110px; text-indent:-1000em; }
 #header #navbar { color:#fff; background:#fc883b; padding:2px; line-height:25px; text-align:right; }
 #header .userMenu { float:left; }
 #header .userMenu ul li { float:left; margin:0px 2px; display:inline; }

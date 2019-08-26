@@ -11,7 +11,7 @@ public interface UserBiz {
 	 * @param sql
 	 * @return
 	 */
-	public boolean checkLogin(String username,String password,UserInfo userInfo);
+	public boolean checkLogin(String username,String password);
 	public void setUserDao(UserDao userdao);
 	/**
 	 * 注册、添加用户

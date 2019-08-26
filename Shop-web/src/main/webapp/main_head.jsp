@@ -18,7 +18,7 @@
 
 <!--头部导航条开始-->
 <div id="header" class="wrap">
-	<div id="logo">鲲鹏网上书城</div>
+	<div id="logo">鲲鹏网上商城</div>
 	<div id="navbar">
 		<div class="userMenu">
 			<ul>
