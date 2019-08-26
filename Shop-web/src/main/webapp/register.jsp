@@ -45,7 +45,7 @@
 </div>	
 <!--底部-->
 <div id="footer" class="wrap">
-	鲲鹏网上商城 &copy; 版权所有
+	<%@include file="foot.jsp" %>
 </div>
 </body>
 

@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 //		System.out.print("fdsafdsfsa");
 		//登录操作
 		boolean flag = userBiz.checkLogin(username, password);
-		System.out.println("登录成功状态2："+flag);
+		System.out.println("登录成功状态："+flag);
 		if(flag) {
 			request.getSession().setAttribute("loginuser", username);
 //			response.sendRedirect("main.jsp");

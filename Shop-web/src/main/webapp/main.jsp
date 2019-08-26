@@ -60,7 +60,7 @@ function checkSel() {
 			<table>
 				<tr class="title">
 					<th class="checker"></th>
-					<th>商品名</th>
+					<th class="name">商品名</th>
 					<th class="price">价格</th>
 					<th class="store">库存</th>
 					<th class="view">图片预览</th>
@@ -104,7 +104,7 @@ function checkSel() {
 </div><!--中间内容结束-->
 
 <div id="footer" class="wrap">
-	鲲鹏网上商城 &copy; 版权所有
+	<%@include file="foot.jsp" %>
 </div>
 
 </body>

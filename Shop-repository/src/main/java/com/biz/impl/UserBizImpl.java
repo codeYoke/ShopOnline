@@ -20,7 +20,6 @@ public class UserBizImpl implements UserBiz{
 	
 	@Override
 	public boolean checkLogin(String username,String password) {
-
 		String sql = "select * from users where user_name='"+username+"'and user_password='"+password+"'";
 		System.out.println(sql); 
 		info = userDao.query(sql,info);	

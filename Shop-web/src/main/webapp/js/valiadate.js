@@ -246,8 +246,37 @@ function checkRegister() {
 	return false;
 }
 
-
-
+/**
+ * 显示当前时间
+ */
+function showTime(){
+				
+				 var d = new Date();
+				 console.log([d]);
+				 var timeTag = document.getElementById('time')
+				 var y = d.getFullYear();
+				 var month = d.getMonth() + 1//这里月份是从0开始的,内部封装有点不合理
+				 var date = d.getDate()
+				 var h = d.getHours()
+				 var m = d.getMinutes()
+				  if(m < 10){
+				 	 m = '0'+m;
+				 }
+				 var s = d.getSeconds()
+				 if(s < 10){
+					 s = '0'+s;
+				}
+				 var day = '日一二三四五六'.charAt(d.getDay())
+				 var timeContent = y + ' - ' + month + ' - ' + date + " " + h + ' : ' + m  + ' : ' +  s + ' 星期 '+ day;
+				 console.log(timeContent)
+				 timeTag.innerHTML = '欢迎来到鲲鹏网上商城：'+timeContent;
+			}
+			var time = null//声明定时函数的计时变量
+			function startTime(){
+				if(time == null){
+					time = window.setInterval(showTime,1000);
+				}
+			}
 
 
 
