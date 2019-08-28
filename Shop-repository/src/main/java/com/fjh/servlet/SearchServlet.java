@@ -2,6 +2,7 @@ package com.fjh.servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -50,23 +51,29 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-
+		int countByName = 0;
 		String currentPage = request.getParameter("currentPage");//获取当前页
 		int no = currentPage == null?1:Integer.parseInt(currentPage);//如果当前页为空，则默认为1，否则转化为相应的int
 		
 //		String currentSearchPage = request.getParameter("currentSearchPage");
-		String bookname = request.getParameter("keywords");//获取你输入的书名		
-		List<Goods> books = null;
-		if(bookname==null || bookname.equals("")){
+		
+		String bookname = request.getParameter("keywords");//获取你输入的书名	
+		
+		String keywords = bookname;
+		List<Map<String, Object>> books = null;
+		if(bookname==null || bookname.equals("") || bookname.equals("null")){
 			books=bookbiz.findAll(3, no);//查询所有。3：代表每页显示的条数，no：当前显示页面
 			request.setAttribute("totalPage", (bookbiz.count()/3 + 1));//将总页面数存入request
 			
 		} else {
-			books = bookbiz.findGoodsByName(bookname,3, no);//根据书名模糊查询出数据
-			System.out.println(books.size());
-			request.setAttribute("totalPage", (books.size()/3 + 1));//将总页面数存入request
-		}
 		
+			countByName = bookbiz.findGoodsByName(bookname);//记录模糊查询的总记录数
+			books = bookbiz.findGoodsByName(bookname,3, no);//根据书名模糊查询出数据
+			//System.out.println(books.size());
+			request.setAttribute("totalPage", (countByName/3 + 1));//将总页面数存入request
+		}
+		request.setAttribute("keywords", keywords);
+		System.out.println(keywords);
 		request.setAttribute("books", books);//将查询出的数据存入request
 		request.setAttribute("current", no);//将当前页存入request	
 		request.getRequestDispatcher("main.jsp").forward(request, response);//页面转发

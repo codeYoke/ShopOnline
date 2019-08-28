@@ -204,6 +204,7 @@ public class DbDaoImpl implements DbDao {
 				//while每循环一次，可以获取一行数据  但是一行数据中有很多列 select stu_id id ,stu_name from t_stu;
 				//每一行数据封装一个对象  Class<T> clazz
 				T obj = clazz.newInstance();
+				System.out.println("实例化："+obj);
 				for(int i = 1; i <= columnCount; i ++) {
 					String columnLabel = metaData.getColumnLabel(i);//查询列的别名，如果没有别名，那么和列名是一致
 					Object value = rs.getObject(columnLabel);

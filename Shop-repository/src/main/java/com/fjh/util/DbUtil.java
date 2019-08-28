@@ -67,8 +67,10 @@ public class DbUtil {
 	public static synchronized Connection getConnection() {
 		try {
 			Connection conn = conns.get();
-			if(null == conn) {
+			System.out.println(conn);
+			if(null == conn || conn.isClosed()) {
 				conn = connectionFactory.createConnection();
+				System.out.println(conn.isClosed()+conn.toString());
 				conns.set(conn); 
 			}
 			return conn;
@@ -92,13 +94,18 @@ public class DbUtil {
 	//关闭数据库所有连接
 	public static void closeAll() {
 		Connection conn = conns.get();
-		if(null != conn)
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			if(conn != null && !conn.isClosed())
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		conns.remove();
 	}
 	public static void close(Connection conn) {

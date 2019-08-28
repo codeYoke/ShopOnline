@@ -36,6 +36,8 @@ function checkSel() {
 </head>
 <body>
 <%
+	String bookname = (String)request.getAttribute("keywords");
+	System.out.println("搜索框传过来的值："+bookname);
 	String username = (String)session.getAttribute("loginuser");
 	if(username == null) {
 		response.sendRedirect("login.jsp");
@@ -52,7 +54,9 @@ function checkSel() {
 
 
 <!-- 引入 -->
-<jsp:include page="main_head.jsp"></jsp:include>
+<jsp:include page="main_head.jsp" flush="true">
+	 <jsp:param name="bookname" value="${bookname }"/> 
+</jsp:include>
 
 <div id="content" class="wrap">
 	<div class="list bookList">
@@ -86,14 +90,14 @@ function checkSel() {
 			<%if(request.getAttribute("current") != null) { %>
 			
 			<div class="page-spliter">
-				<a href="SearchServlet">首页</a>
+				<a href="SearchServlet?keywords=<%=bookname%>">首页</a>
 				<%for(int i = 1; i <= totalPage; i++) { %>
 					<%if(i==no) { %>	<!-- 如果不是当前页显示为链接 -->
 							<span class="current"><%=i %></span>
 							<%continue;} %>
-						<a href="SearchServlet?currentPage=<%=i %>"><%=i %></a>
+						<a href="SearchServlet?currentPage=<%=i %>&keywords=<%=bookname%>"><%=i %></a>
 				<%} %>
-				<a href="SearchServlet?currentPage=<%=totalPage %>">尾页</a>
+				<a href="SearchServlet?currentPage=<%=totalPage %>&keywords=<%=bookname%>">尾页</a>
 			</div>
 			
 			<%} %>

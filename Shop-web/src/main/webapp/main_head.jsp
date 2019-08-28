@@ -10,6 +10,7 @@
 </head>
 <body>
 <%
+	String bookname = request.getParameter("bookname");
 	String username = (String)session.getAttribute("loginuser");
 	if(username == null) {
 	response.sendRedirect("login.jsp");
@@ -31,7 +32,7 @@
 			</ul>
 		</div>
 		<form method="post" name="search" action="SearchServlet">
-			搜索：<input class="input-text" type="text" name="keywords" /><input class="input-btn" type="submit" name="submit" value="" />
+			搜索：<input class="input-text" type="text" name="keywords" value="${bookname }" /><input class="input-btn" type="submit" name="submit" value="" />
 			<%-- <%session.setAttribute("isSearch", "true"); %>	<!-- 标记是否点击搜索 --> --%>
 		</form>
 	</div>

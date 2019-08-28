@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import com.fjh.Goods;
 import com.fjh.dao.GoodsDao;
 import com.fjh.util.DbUtil;
 
@@ -17,7 +18,7 @@ public class GoodsDaoImpl extends DbDaoImpl implements GoodsDao {
 	ResultSet rs = null;
 	
 	@Override
-	public List query(String sql){
+	public List<Map<String, Object>> query(String sql){
 		List<Map<String, Object>> data =null;
 		try {
 			data = getDatas(sql);
@@ -32,6 +33,28 @@ public class GoodsDaoImpl extends DbDaoImpl implements GoodsDao {
 	@Override
 	public int count() {
 		String sql = "select count(*) from goods";	
+		conn = DbUtil.getConnection();
+		int i = 0;
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				i = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(conn, ps, rs);
+		}
+		
+		return i;
+	}
+	
+
+	@Override
+	public int count(String sql) {
+		
 		conn = db.getConnection();
 		int i = 0;
 		try {
@@ -49,7 +72,6 @@ public class GoodsDaoImpl extends DbDaoImpl implements GoodsDao {
 		
 		return i;
 	}
-
 	@Override
 	public int update(String sql) {
 		//return deleteOrUpdate(sql);
