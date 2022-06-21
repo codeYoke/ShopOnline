@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>4.10</junit.version>
 		<lombok.version>1.18.8</lombok.version>
-		<mysql.version>5.1.48</mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 	</properties>
 	<!--添加lib依赖  -->
 	<dependencyManagement>
